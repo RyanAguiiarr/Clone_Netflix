@@ -1,5 +1,27 @@
-/* Importando uma fonte similar à da Netflix */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --neo-primary: #ff0027;
+    --neo-secondary: #c00020;
+    --neo-accent: #ff6b81;
+    --neo-dark: #1a0000;
+    --neo-darker: #0e0000;
+    --neo-light: #fff5f5;
+    --neo-gradient: linear-gradient(135deg, var(--neo-primary) 0%, var(--neo-secondary) 50%, #7c0012 100%);
+    --neo-gradient-soft: linear-gradient(135deg, rgba(255, 0, 39, 0.8) 0%, rgba(192, 0, 32, 0.8) 50%, rgba(124, 0, 18, 0.8) 100%);
+    --neo-overlay: linear-gradient(to bottom, rgba(26, 0, 0, 0.8) 0%, rgba(26, 0, 0, 0.4) 50%, rgba(26, 0, 0, 0.9) 100%);
+    --neo-glow: 0 0 10px rgba(255, 0, 39, 0.7), 0 0 20px rgba(255, 0, 39, 0.4);
+    --neo-glow-dark: 0 0 10px rgba(192, 0, 32, 0.7), 0 0 20px rgba(192, 0, 32, 0.4);
+    
+    --glass-bg: rgba(26, 0, 0, 0.25);
+    --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+    --glass-blur: blur(8px);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    
+    --transition-fast: 0.2s;
+    --transition-medium: 0.4s;
+    --transition-slow: 0.6s;
+}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -9,7 +31,6 @@ body {
     min-height: 100vh;
 }
 
-/* Fundo com imagem e sobreposição escura */
 body::before {
     content: '';
     position: absolute;
@@ -17,33 +38,72 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('./Assets/unnamed.png') no-repeat center center/cover;
+    background: url('../Assets/unnamed.png') no-repeat center center/cover;
     opacity: 0.4;
     z-index: -1;
 }
 
-.netflix-logo {
-    width: 150px;
+.neoflix-logo {
+    position: relative;
+    width: 140px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.6rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--neo-light);
+    text-shadow: var(--neo-glow);
+}
+  
+.neoflix-logo span:first-child {
+    color: var(--neo-light);
+}
+  
+.neoflix-logo span:last-child {
+    color: var(--neo-primary);
+}
+  
+.neoflix-logo::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--neo-gradient);
+    transform: scaleX(0.8);
+    transform-origin: left;
+    transition: transform var(--transition-fast) ease;
+}
+  
+.neoflix-logo:hover::after {
+    transform: scaleX(1);
 }
 
-/* Centraliza o card de login */
 main {
-    min-height: calc(100vh - 100px); /* Subtrai a altura aproximada do header */
+    min-height: calc(100vh - 100px);
 }
 
-/* Card de Login */
 .login-card {
-    padding: 40px; /* Reduzi um pouco o padding para acomodar o novo wrapper */
+    padding: 40px;
     border-radius: 4px;
     width: 100%;
-    max-width: 480px; /* Aumentei um pouco a largura máxima */
+    max-width: 480px;
 }
 
 .login-card h1 {
+    display: flexbox;
+    font-size: 2rem;
     font-weight: 700;
+    color: var(--neo-light);
+    text-align: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 8px var(--neo-primary), 0 0 16px var(--neo-primary);
 }
 
-/* Estilização dos formulários e inputs */
 .form-control, .form-floating > .form-control {
     background-color: #333;
     border: none;
@@ -68,7 +128,6 @@ main {
     color: #e50914;
 }
 
-/* Botão de mostrar/ocultar senha */
 #togglePassword {
     background-color: #333;
     border: none;
@@ -79,7 +138,6 @@ main {
     color: #fff;
 }
 
-/* Botão principal */
 .btn-danger {
     background-color: #e50914;
     border: none;
@@ -87,7 +145,6 @@ main {
     padding: 12px;
 }
 
-/* Ajuda e Lembre-se de mim */
 .form-help {
     color: #fff;
     font-size: 0.9rem;
@@ -112,9 +169,35 @@ main {
     text-decoration: underline;
 }
 
-/* Seção de Login Social e Cadastro */
 .social-login p, .signup-section p {
     color: #b9b9b9;
+}
+
+.social-login button {
+    background: transparent;
+    color: var(--neo-light);
+    border: 2px solid var(--neo-primary);
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast) ease;
+    width: auto;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+
+.social-login button:last-child {
+    margin-right: 0;
+}
+
+.social-login button:hover {
+    background-color: var(--neo-primary);
+    box-shadow: var(--neo-glow);
+    transform: translateY(-2px);
 }
 
 .signup-section a, .social-login a {
@@ -136,54 +219,172 @@ main {
     color: #fff;
 }
 
-/* ======================================= */
-/* ===         CÓDIGO ADICIONADO         === */
-/* ======================================= */
-
 .form-wrapper {
-    background-color: #000000be; /* Fundo branco com 8% de opacidade */
+    background-color: #000000be;
     padding: 30px;
     border-radius: 4px;
 }
 
-/* ========= ESTILOS DO FOOTER ADICIONADOS ========= */
-
-/* Ajuste na área principal para dar espaço para o footer não sobrepor o conteúdo */
 main {
     min-height: calc(100vh - 200px); 
     padding-bottom: 50px;
 }
 
-/* Container principal do footer */
+.btn-neo-primary {
+    background: var(--neo-primary);
+    color: var(--neo-light);
+    border: none;
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast) ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-neo-primary:hover {
+    box-shadow: var(--neo-glow);
+    transform: translateY(-2px);
+}
+
+.btn-neo-outline {
+    background: transparent;
+    color: var(--neo-light);
+    border: 2px solid var(--neo-primary);
+    border-radius: 5px;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-fast) ease;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-neo-outline:hover {
+    background-color: var(--neo-primary);
+    box-shadow: var(--neo-glow);
+    transform: translateY(-2px);
+}
+
 .footer-container {
     background-color: #000000;
-    color: #b9b9b9; /* Cor cinza padrão da Netflix para texto de rodapé */
+    color: #b9b9b9;
     font-size: 0.9rem;
 }
 
-/* Estilo para todos os links dentro do footer */
 .footer-container a {
     color: #fff;
     text-decoration: none;
 }
 
-/* Efeito de sublinhado ao passar o mouse sobre os links */
 .footer-container a:hover {
     text-decoration: underline;
 }
 
-/* Remove o padding padrão da lista */
 .footer-container ul {
     padding: 0;
 }
 
-/* Adiciona um espaçamento abaixo de cada item da lista */
 .footer-container li {
     margin-bottom: 1rem;
 }
 
-/* Estilo para a sua linha de crédito pessoal */
+.footer-links ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.footer-links ul li {
+    display: inline-block;
+}
+
 .personal-credit {
     font-size: 0.8rem;
     color: #b9b9b9;
 }
+
+a{
+    color: rgba(255, 245, 245, 0.7);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast) ease;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: var(--neo-primary);
+    transition: width var(--transition-fast) ease;
+}
+
+a:hover {
+    color: var(--neo-primary);
+    text-shadow: var(--neo-glow);
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+.dropdown-menu {
+    background-color: #333;
+    border: 1px solid #444;
+    padding: 0.5rem;
+}
+
+.dropdown-item {
+    color: #fff;
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.dropdown-item:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Estilização específica para links que usam a classe btn-neo-outline */
+a.btn-neo-outline {
+  display: inline-block;
+  text-decoration: none;
+  background: transparent;
+  color: var(--neo-light);
+  border: 2px solid var(--neo-primary);
+  border-radius: 5px;
+  padding: 0.5rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+a.btn-neo-outline:hover {
+  background-color: var(--neo-primary);
+  box-shadow: 0 0 10px rgba(255, 0, 39, 0.7), 0 0 20px rgba(255, 0, 39, 0.4);
+  transform: translateY(-2px);
+  text-decoration: none;
+  color: white;
+}
+
