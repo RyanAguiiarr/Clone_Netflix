@@ -1,0 +1,189 @@
+/* Importando uma fonte similar à da Netflix */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #000;
+    color: #fff;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* Fundo com imagem e sobreposição escura */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('./Assets/unnamed.png') no-repeat center center/cover;
+    opacity: 0.4;
+    z-index: -1;
+}
+
+.netflix-logo {
+    width: 150px;
+}
+
+/* Centraliza o card de login */
+main {
+    min-height: calc(100vh - 100px); /* Subtrai a altura aproximada do header */
+}
+
+/* Card de Login */
+.login-card {
+    padding: 40px; /* Reduzi um pouco o padding para acomodar o novo wrapper */
+    border-radius: 4px;
+    width: 100%;
+    max-width: 480px; /* Aumentei um pouco a largura máxima */
+}
+
+.login-card h1 {
+    font-weight: 700;
+}
+
+/* Estilização dos formulários e inputs */
+.form-control, .form-floating > .form-control {
+    background-color: #333;
+    border: none;
+    color: #fff;
+    height: 50px;
+}
+
+.form-control:focus {
+    background-color: #444;
+    box-shadow: none;
+    color: #fff;
+    border: 1px solid #e50914;
+}
+
+.form-floating > label {
+    color: #8c8c8c;
+}
+
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+    transform: scale(0.85) translateY(-0.9rem) translateX(0.15rem);
+    color: #e50914;
+}
+
+/* Botão de mostrar/ocultar senha */
+#togglePassword {
+    background-color: #333;
+    border: none;
+    color: #8c8c8c;
+}
+
+#togglePassword:hover {
+    color: #fff;
+}
+
+/* Botão principal */
+.btn-danger {
+    background-color: #e50914;
+    border: none;
+    font-weight: 500;
+    padding: 12px;
+}
+
+/* Ajuda e Lembre-se de mim */
+.form-help {
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.form-check-input {
+    background-color: #333;
+    border: 1px solid #8c8c8c;
+}
+
+.form-check-input:checked {
+    background-color: #e50914;
+    border-color: #e50914;
+}
+
+.form-help a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.form-help a:hover {
+    text-decoration: underline;
+}
+
+/* Seção de Login Social e Cadastro */
+.social-login p, .signup-section p {
+    color: #b9b9b9;
+}
+
+.signup-section a, .social-login a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.signup-section a:hover, .social-login a:hover {
+    text-decoration: underline;
+}
+
+.signup-section small {
+    color: #b9b9b9;
+    font-size: 0.8rem;
+}
+
+.signup-section small a {
+    color: #fff;
+}
+
+/* ======================================= */
+/* ===         CÓDIGO ADICIONADO         === */
+/* ======================================= */
+
+.form-wrapper {
+    background-color: #000000be; /* Fundo branco com 8% de opacidade */
+    padding: 30px;
+    border-radius: 4px;
+}
+
+/* ========= ESTILOS DO FOOTER ADICIONADOS ========= */
+
+/* Ajuste na área principal para dar espaço para o footer não sobrepor o conteúdo */
+main {
+    min-height: calc(100vh - 200px); 
+    padding-bottom: 50px;
+}
+
+/* Container principal do footer */
+.footer-container {
+    background-color: #000000;
+    color: #b9b9b9; /* Cor cinza padrão da Netflix para texto de rodapé */
+    font-size: 0.9rem;
+}
+
+/* Estilo para todos os links dentro do footer */
+.footer-container a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Efeito de sublinhado ao passar o mouse sobre os links */
+.footer-container a:hover {
+    text-decoration: underline;
+}
+
+/* Remove o padding padrão da lista */
+.footer-container ul {
+    padding: 0;
+}
+
+/* Adiciona um espaçamento abaixo de cada item da lista */
+.footer-container li {
+    margin-bottom: 1rem;
+}
+
+/* Estilo para a sua linha de crédito pessoal */
+.personal-credit {
+    font-size: 0.8rem;
+    color: #b9b9b9;
+}
